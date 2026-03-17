@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MBA Eligify — Find Your Perfect B-School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+<!-- ─────────── HERO SECTION ─────────── -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <nav class="nav">
+    <div class="logo">MBA<span>Eligify</span></div>
+    <div class="nav-tagline">India's Smartest B-School Matcher</div>
+  </nav>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Powered by Real CAT Data</div>
+    <h1 class="hero-title">Discover Your<br><em>Dream B-School</em></h1>
+    <p class="hero-sub">Enter your CAT score and category — we'll match you to colleges you can actually get into.</p>
+    <a href="#finder" class="hero-cta">Start Matching <span>→</span></a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span>70+</span><small>Top B-Schools</small></div>
+    <div class="stat"><span>IIMs</span><small>Included</small></div>
+    <div class="stat"><span>5</span><small>Categories</small></div>
+  </div>
+</header>
+
+<!-- ─────────── FINDER SECTION ─────────── -->
+<section id="finder" class="finder-section">
+  <div class="section-label">Step 01 — Your Profile</div>
+  <h2 class="section-title">Tell Us About Yourself</h2>
+
+  <form id="eligibilityForm" class="eligibility-form" autocomplete="off">
+    <div class="form-grid">
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="e.g. Rahul Sharma" required />
+      </div>
+      <div class="field">
+        <label>Date of Birth</label>
+        <input type="date" id="dob" required />
+      </div>
+      <div class="field">
+        <label>12th Percentage (%)</label>
+        <input type="number" id="twelfth" placeholder="e.g. 85" min="0" max="100" step="0.01" required />
+      </div>
+      <div class="field">
+        <label>CAT Percentile</label>
+        <input type="number" id="cat_score" placeholder="e.g. 92.5" min="0" max="100" step="0.01" required />
+      </div>
+      <div class="field full-width">
+        <label>Category</label>
+        <div class="category-pills">
+          <button type="button" class="pill" data-val="GENERAL">General</button>
+          <button type="button" class="pill" data-val="EWS">EWS</button>
+          <button type="button" class="pill" data-val="OBC">OBC</button>
+          <button type="button" class="pill" data-val="SC">SC</button>
+          <button type="button" class="pill" data-val="ST">ST</button>
+        </div>
+        <input type="hidden" id="category" required />
+      </div>
+    </div>
+    <button type="submit" class="submit-btn" id="submitBtn">
+      <span class="btn-text">Find My Colleges</span>
+      <span class="btn-icon">✦</span>
+    </button>
+  </form>
+</section>
+
+<!-- ─────────── RESULTS SECTION ─────────── -->
+<section id="results" class="results-section hidden">
+  <div class="results-header">
+    <div>
+      <div class="section-label">Step 02 — Your Matches</div>
+      <h2 class="section-title" id="resultsTitle">Eligible Colleges</h2>
+    </div>
+    <div class="results-meta" id="resultsMeta"></div>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <input type="text" id="searchFilter" placeholder="🔍 Search colleges..." class="filter-input" />
+    <select id="tierFilter" class="filter-select">
+      <option value="">All Tiers</option>
+      <option value="Tier 1">Tier 1</option>
+      <option value="Tier 2">Tier 2</option>
+      <option value="Tier 3">Tier 3</option>
+    </select>
+    <select id="sortFilter" class="filter-select">
+      <option value="roi">Sort: Best ROI</option>
+      <option value="package">Sort: Highest Package</option>
+      <option value="fees_asc">Sort: Lowest Fees</option>
+      <option value="placement">Sort: Best Placement</option>
+    </select>
+  </div>
+
+  <div id="collegeGrid" class="college-grid"></div>
+</section>
+
+<!-- ─────────── COLLEGE DETAIL MODAL ─────────── -->
+<div id="collegeModal" class="modal-overlay hidden">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- ─────────── LOADING OVERLAY ─────────── -->
+<div id="loadingOverlay" class="loading-overlay hidden">
+  <div class="loader-content">
+    <div class="loader-ring"></div>
+    <p id="loadingText">Analysing your profile…</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>MBA Eligify &copy; 2025 — Built with ❤️ for CAT aspirants</p>
+</footer>
+
+<script src="/static/js/main.js"></script>
+</body>
+</html>
